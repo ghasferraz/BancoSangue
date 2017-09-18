@@ -29,5 +29,9 @@ namespace BancoSangue.Models
         {
             return new ApplicationDbContext();
         }
-    }
+
+		public System.Data.Entity.DbSet<BancoSangue.Models.Doacao> Doacaos { get; set; }
+
+		public System.Data.Entity.DbSet<BancoSangue.Models.Imagem> Imagems { get; set; }
+	}
 }
