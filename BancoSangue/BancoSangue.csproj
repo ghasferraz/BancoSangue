@@ -192,14 +192,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ControllersDoacao\DoacoesController.cs" />
     <Compile Include="Controllers\ControllersDoacao\ImagensController.cs" />
+    <Compile Include="Controllers\ControllersDoacao\TelaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709181710468_Alteracao das classes.cs" />
-    <Compile Include="Migrations\201709181710468_Alteracao das classes.Designer.cs">
-      <DependentUpon>201709181710468_Alteracao das classes.cs</DependentUpon>
+    <Compile Include="Migrations\201709191528213_adicao de legenda.cs" />
+    <Compile Include="Migrations\201709191528213_adicao de legenda.Designer.cs">
+      <DependentUpon>201709191528213_adicao de legenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -270,16 +271,12 @@
     <Content Include="Views\Doacoes\Details.cshtml" />
     <Content Include="Views\Doacoes\Edit.cshtml" />
     <Content Include="Views\Doacoes\Index.cshtml" />
-    <Content Include="Views\Imagems\Create.cshtml" />
-    <Content Include="Views\Imagems\Delete.cshtml" />
-    <Content Include="Views\Imagems\Details.cshtml" />
-    <Content Include="Views\Imagems\Edit.cshtml" />
-    <Content Include="Views\Imagems\Index.cshtml" />
     <Content Include="Views\Imagens\Create.cshtml" />
     <Content Include="Views\Imagens\Delete.cshtml" />
     <Content Include="Views\Imagens\Details.cshtml" />
     <Content Include="Views\Imagens\Edit.cshtml" />
     <Content Include="Views\Imagens\Index.cshtml" />
+    <Content Include="Views\Tela\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,8 +295,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709181710468_Alteracao das classes.resx">
-      <DependentUpon>201709181710468_Alteracao das classes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709191528213_adicao de legenda.resx">
+      <DependentUpon>201709191528213_adicao de legenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

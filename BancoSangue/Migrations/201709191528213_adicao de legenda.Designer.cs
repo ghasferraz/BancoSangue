@@ -7,13 +7,13 @@ namespace BancoSangue.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Alteracaodasclasses : IMigrationMetadata
+    public sealed partial class adicaodelegenda : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Alteracaodasclasses));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(adicaodelegenda));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709181710468_Alteracao das classes"; }
+            get { return "201709191528213_adicao de legenda"; }
         }
         
         string IMigrationMetadata.Source

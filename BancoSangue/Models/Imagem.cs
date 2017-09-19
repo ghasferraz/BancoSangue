@@ -13,6 +13,9 @@ namespace BancoSangue.Models
 		public int Id { get; set; }
 		[ForeignKey("doacao")]
 		public int IdDoacao { get; set; }
+		public string caminho { get; set; }
+		public string Legenda { get; set; }
 		public virtual Doacao doacao { get; set; }
+
 	}
 }

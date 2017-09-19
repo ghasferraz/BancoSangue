@@ -48,7 +48,7 @@ namespace BancoSangue.Controllers.ControllersDoacao
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IdDoacao")] Imagem imagem)
+        public ActionResult Create([Bind(Include = "Id,IdDoacao,Legenda")] Imagem imagem)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace BancoSangue.Controllers.ControllersDoacao
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IdDoacao")] Imagem imagem)
+        public ActionResult Edit([Bind(Include = "Id,IdDoacao,Legenda")] Imagem imagem)
         {
             if (ModelState.IsValid)
             {
