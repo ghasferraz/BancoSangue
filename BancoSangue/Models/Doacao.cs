@@ -13,7 +13,9 @@ namespace BancoSangue.Models
 		public int Id { get; set; }
 		public string Titulo { get; set; }
 		public string Descricao { get; set; }
+		[Display (Name ="Data de Início")]
 		public DateTime DataInicio { get; set; }
+		[Display(Name = "Data Final")]
 		public DateTime DataFim { get; set; }
 		public int NumeroVagas { get; set; }
 		public string NomeResponsavel { get; set; }

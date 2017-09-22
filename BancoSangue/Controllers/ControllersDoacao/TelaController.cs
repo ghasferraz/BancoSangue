@@ -16,7 +16,8 @@ namespace BancoSangue.Controllers.ControllersDoacao
 		{
 			if (id == null)
 			{
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+				Doacao doacao2 = db.Doacaos.FirstOrDefault();
+				return  View(doacao2) ;
 			}
 			Doacao doacao = db.Doacaos.Find(id);
 			if (doacao == null)

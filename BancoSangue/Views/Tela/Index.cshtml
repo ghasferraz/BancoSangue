@@ -4,72 +4,67 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Details</h2>
-<div>
+<div class="row">
 
-    <h4>Doacao</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
+    <div class="col-xs-12 caixa">
 
-        <dd>
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
+        <div class="col-xs-12">
+            <h1>@Model.Titulo</h1>
+            <hr />
+            <h2>@Model.Descricao</h2>
+            <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DataInicio, htmlAttributes: new { @class = "control-label " })
+                    <div>
+                        @Html.DisplayFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
+            </div>
+            <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataInicio)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DataFim, htmlAttributes: new { @class = "control-label " })
+                    <div>
+                        @Html.DisplayFor(model => model.DataFim, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataInicio)
-        </dd>
+            </div>
+            <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataFim)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumeroVagas, htmlAttributes: new { @class = "control-label " })
+                    <div>
+                        @Html.DisplayFor(model => model.NumeroVagas, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataFim)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumeroVagas)
-        </dt>
+        </div>
+        <div class="col-xs-12">
+            <hr />
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumeroVagas)
-        </dd>
+        @*@Html.ActionLink("Imagem","Doacoes","Criacao de Imagem")
+            {
+            <img src="caminho imagem" alt="Exemplo!" title="titulo da imagem" align="middle">
+            }
+            */*@
+        <div class="col-xs-12">
+            @foreach (var i in Model.imagem)
+            {
+                <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeResponsavel)
-        </dt>
+                    <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive">
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeResponsavel)
-        </dd>
+                    <p>@i.Legenda</p>
 
-    </dl>
-   @*@Html.ActionLink("Imagem","Doacoes","Criacao de Imagem")
-    {
-    <img src="caminho imagem" alt="Exemplo!" title="titulo da imagem" align="middle">
-    }
-    */*@
-    @foreach (var i in Model.imagem)
-    {
-        <img src="@i.caminho" alt="@i.Legenda"  align="middle">
-    }
+                </div>}
+            
+    
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

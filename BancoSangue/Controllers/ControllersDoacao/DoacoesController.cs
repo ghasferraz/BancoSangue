@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BancoSangue.Models;
+using System.IO;
 
 namespace BancoSangue.Controllers.ControllersDoacao
 {
@@ -46,15 +47,30 @@ namespace BancoSangue.Controllers.ControllersDoacao
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Titulo,Descricao,DataInicio,DataFim,NumeroVagas,NomeResponsavel")] Doacao doacao)
+        public ActionResult Create(Doacao doacao)
         {
             if (ModelState.IsValid)
             {
-                db.Doacaos.Add(doacao);
+				int arquivos = 0;
+				for (int i = 0; i < Request.Files.Count; i++)
+				{
+					HttpPostedFileBase arquivo = Request.Files[i];
+					if (arquivo.ContentLength > 0)
+					{
+						var UploadPath = Server.MapPath("~/Content");
+						string caminhoArquivo = Path.Combine(@UploadPath, Path.GetFileName(arquivo.FileName));
+
+						arquivo.SaveAs(caminhoArquivo);
+						arquivos++;
+
+					}
+				}
+				ViewData["Message"] = String.Format("{0} arquivo salvo com sucesso", arquivos);
+				db.Doacaos.Add(doacao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+			
             return View(doacao);
         }
 
