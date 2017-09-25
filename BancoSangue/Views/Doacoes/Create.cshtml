@@ -67,7 +67,7 @@
         </div>
             <fieldset>
     
-                <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" />
+                <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" multiple />
             </fieldset>
 
             <div class="form-group">
@@ -118,7 +118,6 @@
        
 
         $(document).on("change", "#AdicionaImagem", function () {
-            console.log("Passou aqui");
             var files = this.files;
             // Let's create an empty `errors` String to collect eventual errors into:
             var errors = "";

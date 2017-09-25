@@ -49,7 +49,7 @@ namespace BancoSangue.Controllers.ControllersDoacao
         [ValidateAntiForgeryToken]
         public ActionResult Create(Doacao doacao)
         {
-
+			/* Verificar caminho da imagem */
 
 
 			if (ModelState.IsValid)
@@ -58,6 +58,7 @@ namespace BancoSangue.Controllers.ControllersDoacao
 				
 				for (int i = 0; i < Request.Files.Count; i++)
 				{
+					//doacao.imagem.FirstOrDefault().caminho = "";
 					HttpPostedFileBase arquivo = Request.Files[i];
 					if (arquivo.ContentLength > 0)
 					{
