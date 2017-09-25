@@ -60,7 +60,11 @@ namespace BancoSangue.Controllers.ControllersDoacao
             ViewBag.IdDoacao = new SelectList(db.Doacaos, "Id", "Titulo", imagem.IdDoacao);
             return View(imagem);
         }
-
+		public ActionResult ListaImagens()
+		{
+			ViewBag.Imagem = new Imagem();
+			return View();
+		}
         // GET: Imagens/Edit/5
         public ActionResult Edit(int? id)
         {

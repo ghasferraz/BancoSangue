@@ -62,16 +62,23 @@
                 @Html.ValidationMessageFor(model => model.NomeResponsavel, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div id="">
+           
+        </div>
             <fieldset>
     
-                <input type="file" value="Enviar" />
+                <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" />
             </fieldset>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type ="submit" name="Imagens" value="Create" class="btn btn-default" />
+                    <asp:FileUpload runat="server" id="img" accept=".jpg,.png" AllowMultiple="True" />
+                    <input type ="submit" value="Create" class="btn btn-default" img src="~/Content"/>
+
                 </div>
+                <div id="LocalImagens">
+                
+               </div>
             </div>
         </div>
 }
@@ -79,7 +86,152 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<div hidden id="baseImagemCarrossel">
+    <div class="col-xs-12 col-sm-6 selecionar">
+        <div class="col-xs-12">
+            <img width="100%" />
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 imgLegenda" for="Legenda">Legenda:</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line imgLegendaTexto" id="Legenda" name="Legenda" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 imgInfo" for="Infomações">Informações:</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line imgInfoTexto" name="Infomações" type="text" readonly>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script>
+
+        "use strict"
+    
+
+        window.URL = window.URL || window.webkitURL;
+
+       
+
+        $(document).on("change", "#AdicionaImagem", function () {
+            console.log("Passou aqui");
+            var files = this.files;
+            // Let's create an empty `errors` String to collect eventual errors into:
+            var errors = "";
+
+            if (!files) {
+                errors += "File upload not supported by your browser.";
+            }
+
+            var raia = "#LocalImagens";
+            // Check for `files` (FileList) support and if contains at least one file:
+            if (files && files[0]) {
+
+                var j = 0;
+
+                // Iterate over every File object in the FileList array
+                for (var i = 0; i < files.length; i++) {
+
+                    // Let's refer to the current File as a `file` variable
+                    // https://developer.mozilla.org/en-US/docs/Web/API/File
+                    var file = files[i];
+
+                    // Test the `file.name` for a valid image extension:
+                    // (pipe `|` delimit more image extensions)
+                    // The regex can also be expressed like: /\.(png|jpe?g|gif)$/i
+                    if ((/\.(png|jpeg|jpg|gif)$/i).test(file.name)) {
+                        // SUCCESS! It's an image!
+                        // Send our image `file` to our `readImage` function!
+                        readImage(file, raia, j++);
+                    } else {
+                        errors += file.name + " Unsupported Image extension\n";
+                    }
+                }
+            }
+
+            // Notify the user for any errors (i.e: try uploading a .txt file)
+            if (errors) {
+                alert(errors);
+            }
+        });
+    
+
+        var elBrowse = document.getElementById("browse"),
+            useBlob = false && window.URL; // `true` to use Blob instead of Data-URL
+
+
+        // 2.
+        function readImage(file, raia, posicao) {
+
+            // 2.1
+            // Create a new FileReader instance
+            // https://developer.mozilla.org/en/docs/Web/API/FileReader
+            var reader = new FileReader();
+
+            var elPreview = $(raia);
+
+            elPreview.empty();
+
+            // 2.3
+            // Once a file is successfully readed:
+            reader.addEventListener("load", function () {
+
+                // At this point `reader.result` contains already the Base64 Data-URL
+                // and we've could immediately show an image using
+                // `elPreview.insertAdjacentHTML("beforeend", "<img src='"+ reader.result +"'>");`
+                // But we want to get that image's width and height px values!
+                // Since the File Object does not hold the size of an image
+                // we need to create a new image and assign it's src, so when
+                // the image is loaded we can calculate it's width and height:
+                var image = new Image();
+                image.addEventListener("load", function () {
+
+
+                    var index = elPreview.data("index");
+
+                    var imageInfo = $($("#baseImagemCarrossel").html());
+
+                    var legenda = file.name;
+                    legenda = legenda.substring(0, legenda.length - 4)
+                    imageInfo.find("img").attr("src", this.src);
+                    imageInfo.find(".imgInfoTexto").val(
+                                    file.name + ' ' +
+                                    image.width + '×' +
+                                    image.height + ' ' +
+                                    file.type + ' ' +
+                                    Math.round(file.size / 1024) + 'KB');
+                    imageInfo.find(".imgLegendaTexto").attr("name", 'Imagem[' + posicao + '].Legenda').val(legenda);
+
+                    imageInfo.append('<input name="Imagem.Index" type="hidden" value="' + posicao + '">');
+               
+                    imageInfo.append('<input name="Imagem[' + posicao + '].Src" id="Itens[' + index + '].Imagem[' + posicao + '].Src" type="hidden" value="' + this.src + '">');
+                    // Finally append our created image and the HTML info string to our `#preview`
+                    elPreview.append(imageInfo);
+                });
+
+                image.src = useBlob ? window.URL.createObjectURL(file) : reader.result;
+
+                // If we set the variable `useBlob` to true:
+                // (Data-URLs can end up being really large
+                // `src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAA...........etc`
+                // Blobs are usually faster and the image src will hold a shorter blob name
+                // src="blob:http%3A//example.com/2a303acf-c34c-4d0a-85d4-2136eef7d723"
+                if (useBlob) {
+                    // Free some memory for optimal performance
+                    window.URL.revokeObjectURL(file);
+                }
+            });
+
+            // 2.2
+            // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
+            reader.readAsDataURL(file);
+
+        }
+
+</script>
+
 }

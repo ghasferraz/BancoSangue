@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BancoSangue.Models.Imagem>
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+<table class="table">
+    <tr>
+    
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Legenda)
+            @Html.EditorFor(modelItem=>item.Legenda, new { htmlAttributes = new { @class = "form-control", @Name = "Itens[" + @ViewBag.Index + "].Legenda", id = "Imagens[" + @ViewBag.Index + "].Legenda" } })
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+    @Html.ActionLink("Novo", "Create", null, new { @class = "btn btn-primary" })
+
+</table>
+
+
+
+
+
+
+<div class="col-xs-12 selecionar" id="pergunta-@ViewBag.Index">
+    <input name="Perguntas.Index" type="hidden" value="@ViewBag.Index">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", @Name = "Perguntas[" + @ViewBag.Index + "].Descricao", id = "Perguntas[" + @ViewBag.Index + "].Descricao" } })
+            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.Tipo, htmlAttributes: new { @class = "form-control", @Name = "Perguntas[" + @ViewBag.Index + "].Tipo", id = "Perguntas[" + @ViewBag.Index + "].Tipo" })
+            @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" id="pergunta-opcao-@ViewBag.Index">
+    </div>
+    <div class="form-group text-center">
+        <input id="opcao-@ViewBag.Index" class="pergunta-opcao btn btn-primary" type="button" data-id="@ViewBag.Index" data-opcao="@Model.Opções.Count" value="Adicionar Opção" />
+    </div>
+</div>

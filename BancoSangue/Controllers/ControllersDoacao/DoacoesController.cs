@@ -49,30 +49,45 @@ namespace BancoSangue.Controllers.ControllersDoacao
         [ValidateAntiForgeryToken]
         public ActionResult Create(Doacao doacao)
         {
-            if (ModelState.IsValid)
+
+
+
+			if (ModelState.IsValid)
             {
-				int arquivos = 0;
+				int arquivosSalvos = 0;
+				
 				for (int i = 0; i < Request.Files.Count; i++)
 				{
 					HttpPostedFileBase arquivo = Request.Files[i];
 					if (arquivo.ContentLength > 0)
 					{
+
 						var UploadPath = Server.MapPath("~/Content");
 						string caminhoArquivo = Path.Combine(@UploadPath, Path.GetFileName(arquivo.FileName));
+						
 
 						arquivo.SaveAs(caminhoArquivo);
-						arquivos++;
+						arquivosSalvos++;
 
 					}
 				}
-				ViewData["Message"] = String.Format("{0} arquivo salvo com sucesso", arquivos);
+				ViewData["Message"] = String.Format("{0} arquivo salvo com sucesso", arquivosSalvos);
 				db.Doacaos.Add(doacao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-			
             return View(doacao);
         }
+		public ActionResult _AddImagem(List <Imagem> img)
+		{
+			 img=  new List<Imagem>();
+			for (int i= 0; i <img.Count; i++)
+			{
+				img.Add(new Imagem());
+			}
+			return PartialView(img);
+		}
+
 
         // GET: Doacoes/Edit/5
         public ActionResult Edit(int? id)

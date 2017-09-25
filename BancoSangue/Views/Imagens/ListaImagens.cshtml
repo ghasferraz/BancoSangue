@@ -1,0 +1,23 @@
+﻿@model.BancoSangue.Models.Imagem
+<div class="col-xs-12 selecionar" id="pergunta-@ViewBag.Index">
+    <input name="Imagem.Index" type="hidden" value="@ViewBag.Index">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", @Name = "Perguntas[" + @ViewBag.Index + "].Descricao", id = "Perguntas[" + @ViewBag.Index + "].Descricao" } })
+            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.Tipo, htmlAttributes: new { @class = "form-control", @Name = "Perguntas[" + @ViewBag.Index + "].Tipo", id = "Perguntas[" + @ViewBag.Index + "].Tipo" })
+            @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" id="pergunta-opcao-@ViewBag.Index">
+    </div>
+    <div class="form-group text-center">
+        <input id="opcao-@ViewBag.Index" class="pergunta-opcao btn btn-primary" type="button" data-id="@ViewBag.Index" data-opcao="@Model.Opções.Count" value="Adicionar Opção" />
+    </div>
+</div>
