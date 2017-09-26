@@ -22,6 +22,9 @@ namespace BancoSangue.Models
 		
 		public virtual IList<Imagem> imagem {get;set;}
 		
-
+		public Doacao()
+		{
+			imagem = new List<Imagem>();
+		}
 	}
 }

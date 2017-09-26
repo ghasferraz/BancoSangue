@@ -63,12 +63,15 @@
             </div>
         </div>
         <div id="">
-           
+           <div id="LocalImagens">
+                
+               </div>
         </div>
             <fieldset>
     
                 <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" multiple />
             </fieldset>
+
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -76,9 +79,7 @@
                     <input type ="submit" value="Create" class="btn btn-default" img src="~/Content"/>
 
                 </div>
-                <div id="LocalImagens">
                 
-               </div>
             </div>
         </div>
 }
@@ -206,7 +207,7 @@
                     imageInfo.find(".imgLegendaTexto").attr("name", 'Imagem[' + posicao + '].Legenda').val(legenda);
 
                     imageInfo.append('<input name="Imagem.Index" type="hidden" value="' + posicao + '">');
-               
+                    imageInfo.append('<input name="Imagem[' + posicao + '].Caminho" id="Itens[' + index + '].Imagem[' + posicao + '].Caminho" type="hidden" value="' + file.name  + '">');
                     imageInfo.append('<input name="Imagem[' + posicao + '].Src" id="Itens[' + index + '].Imagem[' + posicao + '].Src" type="hidden" value="' + this.src + '">');
                     // Finally append our created image and the HTML info string to our `#preview`
                     elPreview.append(imageInfo);
