@@ -5,6 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 40px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -21,20 +22,29 @@ input,
 select,
 textarea {
     max-width: 280px;
+ 
 }
 
-.caixa{
-	border-radius:25px;
-	box-shadow: 2px 2px 1px 1px gray;
-	background-color:aliceblue;
-	border-top:3px solid #10afbf;
-	overflow:auto;
+.caixa {
+   
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px gray;
+    background-color: aliceblue;
+    border-top: 3px solid #10afbf;
+    overflow: auto;
 }
 .caixa img{
-	border-radius:25px;
+
+   	border-radius:25px;
 	filter:grayscale(100%);
+    
 }
 
-.caixa img:hover {
+
+.caixa img:h {
 filter: none;
 }
+
+
+
+

@@ -12,15 +12,17 @@
             <h1>@Model.Titulo</h1>
             <hr />
             <h2>@Model.Descricao</h2>
+            <hr/>
             <div class="col-md-4">
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.DataInicio, htmlAttributes: new { @class = "control-label " })
+
                     <div>
                         @Html.DisplayFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
-                </div>
 
+                </div>
+               
             </div>
             <div class="col-md-4">
 
@@ -29,8 +31,9 @@
                     <div>
                         @Html.DisplayFor(model => model.DataFim, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
+                    
                 </div>
-
+               
             </div>
             <div class="col-md-4">
 
@@ -39,35 +42,40 @@
                     <div>
                         @Html.DisplayFor(model => model.NumeroVagas, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
+                    
                 </div>
 
+                
             </div>
-
+                       
         </div>
+            
         <div class="col-xs-12">
             <hr />
         </div>
 
-        @*@Html.ActionLink("Imagem","Doacoes","Criacao de Imagem")
-            {
-            <img src="caminho imagem" alt="Exemplo!" title="titulo da imagem" align="middle">
-            }
-            */*@
+        
         <div class="col-xs-12">
+
             @foreach (var i in Model.imagem)
             {
                 <div class="col-md-4">
-
                     <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive">
-
                     <p>@i.Legenda</p>
+                    
+                </div>
 
-                </div>}
-            
-    
-        </div>
-        <div>
-            input 
+                <div class="col-md-4">
+                    <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive">
+                    <p>@i.Legenda</p>
+                </div>
+
+                <div class  = "col-md-4">
+                    <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive">
+                    <p>@i.Legenda </p>
+                </div>
+            }
+           
         </div>
     </div>
 </div>
