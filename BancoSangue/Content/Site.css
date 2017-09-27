@@ -6,6 +6,7 @@
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-top: 40px;
+    
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -30,19 +31,45 @@ textarea {
     border-radius: 25px;
     box-shadow: 2px 2px 1px 1px gray;
     background-color: aliceblue;
-    border-top: 3px solid #10afbf;
+    border-top: 6px solid #10afbf;
     overflow: auto;
+    padding-bottom:40px;
 }
-.caixa img{
 
-   	border-radius:25px;
-	filter:grayscale(100%);
+div.caixa {
+    padding-top: 30px;
+}
+    .caixa img {
+        border-radius: 25px;
+        filter: grayscale(100%);
+       
+       
+    }
+
+
+.caixa img:hover {
+    filter: none;
     
 }
 
 
-.caixa img:h {
-filter: none;
+.caixa2 {
+    border-radius: 20px;
+    border-width: 40px;
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: white;
+    border: 1px solid blue;
+    overflow: auto;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+p{
+    text-align:center;
+    
 }
 
 
