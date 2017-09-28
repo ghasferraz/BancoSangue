@@ -66,12 +66,15 @@
                 {
 
 
-<div class="col-md-4">                    <div class="caixa2">
-                        <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive img-click ">
-                        <p>@i.Legenda</p>
+                    <div class="col-md-4 ">
+                        <div class="caixa2">
+                            <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive img-click" data-id="@cont">
+                            <p>@i.Legenda</p>
 
-                    </div></div>
+                        </div>
+                    </div>
 
+                    cont++;
 
                 }
 
@@ -126,7 +129,7 @@
                         }
 
 
-        
+
 
                     </div>
                     <a class="left carousel-control" href="#carousel" data-slide="prev">
@@ -142,6 +145,7 @@
             </div>
 
             <div class="modal-footer">
+                <button id="closeModal" type="button" class="btn btn-block btn-primary" data-dismiss="modal">Sair</button>
 
             </div>
         </div>
@@ -152,7 +156,10 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
+            $('#carousel').carousel(0);
+            $('#carousel').carousel('pause');
             $(".img-click").click(function () {
+                $('#carousel').carousel($(this).data("id"));
                 $("#myModal").modal();
             });
         });

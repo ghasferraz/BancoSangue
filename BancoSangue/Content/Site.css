@@ -6,7 +6,6 @@
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-top: 40px;
-    
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -23,55 +22,70 @@ input,
 select,
 textarea {
     max-width: 280px;
- 
 }
 
 .caixa {
-   
     border-radius: 25px;
     box-shadow: 2px 2px 1px 1px gray;
     background-color: aliceblue;
     border-top: 6px solid #10afbf;
     overflow: auto;
-    padding-bottom:40px;
+    padding-bottom: 40px;
 }
 
 div.caixa {
     padding-top: 30px;
 }
-    .caixa img {
-        border-radius: 25px;
-        filter: grayscale(100%);
-       
-       
-    }
 
+
+.col-md-4 {
+    /*ESPACAMENTOS DAS CAIXAS*/
+    padding-top: 15px;
+}
+
+.caixa img {
+    border-radius: 25px;
+    filter: grayscale(100%);
+    align-content:center;
+   
+}
+
+/*.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    height: 250px;
+    width: 2000px;
+}*/
+
+.img-responsive {
+    width: 75%;
+    margin-top: 10px;
+}
 
 .caixa img:hover {
     filter: none;
-    
 }
 
 
 .caixa2 {
-    border-radius: 20px;
+    border-radius: 30px;
     border-width: 40px;
-    /*box-shadow: 2px 2px 1px 1px gray;*/
+    box-shadow: 2px 2px 1px 1px gray;
     background-color: white;
     border: 1px solid blue;
     overflow: auto;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-left: 20px;
     padding-right: 20px;
+    min-height: 230px;
 }
 
 
 
-p{
-    text-align:center;
-    
+p {
+    text-align: center;
 }
 
-
-
-
+.caixa2 img {
+    margin-left:auto;
+    margin-right:auto;
+}
