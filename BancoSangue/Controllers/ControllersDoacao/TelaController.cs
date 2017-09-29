@@ -12,19 +12,9 @@ namespace BancoSangue.Controllers.ControllersDoacao
     {
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-		public ActionResult Index(int? id)
+		public ActionResult Index()
 		{
-			if (id == null)
-			{
-				Doacao doacao2 = db.Doacaos.FirstOrDefault();
-				return  View(doacao2) ;
-			}
-			Doacao doacao = db.Doacaos.Find(id);
-			if (doacao == null)
-			{
-				return HttpNotFound();
-			}
-			return View(doacao);
+            return View(db.Doacaos.ToList());
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
