@@ -1,13 +1,17 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: black;
+    background-color: ghostwhite;
 }
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-top: 40px;
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -26,10 +30,12 @@ textarea {
 
 .caixa {
     border-radius: 25px;
-    box-shadow: 2px 2px 1px 1px gray;
-    background-color: aliceblue;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
     border-top: 6px solid #10afbf;
     overflow: auto;
+    margin-top: 40px;
     padding-bottom: 40px;
 }
 
@@ -44,10 +50,22 @@ div.caixa {
 }
 
 .caixa img {
-    border-radius: 25px;
-    filter: grayscale(100%);
-    align-content:center;
-   
+    border-radius: 20px;
+    align-content: center;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*filter: grayscale(100%);*/
+    /*border-radius: 30px;
+    border-width: 40px;*/
+    /*box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);*/
+    /*box-shadow: 2px 2px 2px 1px #10afbf;*/
+    background-color: aliceblue;
+    /*border: 0,5px solid blue;*/
+    overflow: auto;
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    min-height: 190px;
 }
 
 /*.carousel-inner > .item > img,
@@ -66,18 +84,19 @@ div.caixa {
 }
 
 
-.caixa2 {
+/*.caixa2 {
     border-radius: 30px;
     border-width: 40px;
-    box-shadow: 2px 2px 1px 1px gray;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);
+    box-shadow: 2px 2px 2px 1px #10afbf;
     background-color: white;
-    border: 1px solid blue;
+    border: 0,5px solid blue;
     overflow: auto;
     padding-top: 15px;
     padding-left: 20px;
     padding-right: 20px;
     min-height: 230px;
-}
+}*/
 
 
 
@@ -88,4 +107,17 @@ p {
 .caixa2 img {
     margin-left:auto;
     margin-right:auto;
+
+}
+
+.caixa3 {
+    border-radius: 25px;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
+    border-top: 6px solid #10afbf;
+    padding-left:40px;
+    /*margin-top: 40px;*/
+    padding-top:40px;
+    padding-bottom: 40px;
 }
