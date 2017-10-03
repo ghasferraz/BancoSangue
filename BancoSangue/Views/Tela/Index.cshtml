@@ -17,41 +17,75 @@
                 <hr />
                 <h2>@m.Descricao</h2>
                 <hr />
-                @*<div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(m => m.DataInicio, htmlAttributes: new { @class = "control-label " })
-                <div>
-                    @Html.DisplayFor(m => m.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+
+               
+                    <div class="col-md-4 labelmargin">
+                        <div class="form-group">
+                            <label class="control-label col-xs-12">Data de Início</label>
+                            <div class="col-xs-12">
+                                <input class="form-control text-box single-line" type="text" value="@m.DataInicio.ToString("dd/MM/yyyy HH:mm") " readonly>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 labelmargin">
+                        <div class="form-group">
+                            <label class="control-label col-xs-12">Data Final </label>
+                            <div class="col-xs-12">
+                                <input class="form-control text-box single-line" type="text" value="@m.DataFim.ToString("dd/MM/yyyy HH:mm")" readonly>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 labelmargin">
+                        <div class="form-group">
+                            <label class="control-label col-xs-12">Data de Vagas</label>
+                            <div class="col-xs-12">
+                                <input class="form-control text-box single-line" type="text" value="@m.NumeroVagas " readonly>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    @*<div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataInicio, htmlAttributes: new { @class = "control-label " })
+                        <div>
+                            @Html.DisplayFor(m => m.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+                    </div>
+
                 </div>
+                <div class="col-md-4">
 
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataFim, htmlAttributes: new { @class = "control-label " })
+                        <div>
+                            @Html.DisplayFor(m => m.DataFim, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
 
-        </div>
-        <div class="col-md-4">
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.DataFim, htmlAttributes: new { @class = "control-label " })
-                <div>
-                    @Html.DisplayFor(m => m.DataFim, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
+            <div class="col-md-4">
 
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumeroVagas, htmlAttributes: new { @class = "control-label " })
+                        <div>
+                            @Html.DisplayFor(model => model.NumeroVagas, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
 
-        </div>
-    <div class="col-md-4">
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.NumeroVagas, htmlAttributes: new { @class = "control-label " })
-                <div>
-                    @Html.DisplayFor(model => model.NumeroVagas, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>*@
+
                 </div>
-
-            </div>
-
-
-        </div>*@
-
-            </div>
 
             <div class="col-xs-12 margintopImagem">
                 <hr />

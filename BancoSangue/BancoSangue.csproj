@@ -281,6 +281,7 @@
     <Content Include="Views\Tela\Index.cshtml" />
     <Content Include="Views\Imagens\ListaImagens.cshtml" />
     <Content Include="Views\Doacoes\_AddImagem.cshtml" />
+    <Content Include="Views\Doacoes\_Imagem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

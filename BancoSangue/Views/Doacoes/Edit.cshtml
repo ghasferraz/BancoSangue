@@ -9,9 +9,9 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal caixa3 ">
-        
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
@@ -62,8 +62,15 @@
                 @Html.ValidationMessageFor(model => model.NomeResponsavel, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div id="LocalImagens">
-
+        <div id="LocalImagens" data-index="@Model.imagem.Count">
+            @{
+                ViewBag.Index = 0;
+                foreach(var i in Model.imagem)
+                {
+            @Html.Partial("_Imagem",i)
+                    ViewBag.Index = ViewBag.Index + 1;
+                }
+            }
         </div>
         <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" multiple />
         <div class="form-group">
@@ -73,24 +80,37 @@
         </div>
     </div>
 
-}
+                }
 <div hidden id="baseImagemCarrossel">
     <div class="col-xs-12 col-sm-6 selecionar">
         <div class="col-xs-12">
             <img width="100%" />
         </div>
+        
+            <div class="form-group">
+                <label class="control-label col-md-2 imgLegenda" for="Legenda">Legenda:</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line imgLegendaTexto" id="Legenda" name="Legenda" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 imgInfo" for="Infomações">Informações:</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line imgInfoTexto" name="Infomações" type="text" readonly>
+                </div>
+            </div>
+
         <div class="form-group">
-            <label class="control-label col-md-2 imgLegenda" for="Legenda">Legenda:</label>
             <div class="col-md-10">
-                <input class="form-control text-box single-line imgLegendaTexto" id="Legenda" name="Legenda" type="text">
+                <button class="btn btn-danger btn-delete" >Deletar</button>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-md-2 imgInfo" for="Infomações">Informações:</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line imgInfoTexto" name="Infomações" type="text" readonly>
-            </div>
-        </div>
+        
+
+        
+            
+        
+
     </div>
 </div>
 <div>
@@ -107,7 +127,10 @@
 
         window.URL = window.URL || window.webkitURL;
 
-
+        $(document).on("click", ".btn-delete", function () {
+           var id="#img-" + $(this).data("id");
+           $(id).remove();
+        });
 
         $(document).on("change", "#AdicionaImagem", function () {
             var files = this.files;
@@ -142,6 +165,8 @@
                         errors += file.name + " Unsupported Image extension\n";
                     }
                 }
+                $("#LocalImagens").data("index", $("#LocalImagens").data("index") + j);
+
             }
 
             // Notify the user for any errors (i.e: try uploading a .txt file)
@@ -165,7 +190,7 @@
 
             var elPreview = $(raia);
 
-            elPreview.empty();
+            //elPreview.empty();
 
             // 2.3
             // Once a file is successfully readed:
@@ -186,20 +211,25 @@
 
                     var imageInfo = $($("#baseImagemCarrossel").html());
 
+                    
+
+                    posicao = posicao + index;
+                    imageInfo.attr("id", "img-" + posicao);
+                    imageInfo.find(".btn-delete").data("id", posicao);
                     var legenda = file.name;
                     legenda = legenda.substring(0, legenda.length - 4)
                     imageInfo.find("img").attr("src", this.src);
                     imageInfo.find(".imgInfoTexto").val(
-                                    file.name + ' ' +
-                                    image.width + '×' +
-                                    image.height + ' ' +
-                                    file.type + ' ' +
-                                    Math.round(file.size / 1024) + 'KB');
+                        file.name + ' ' +
+                        image.width + '×' +
+                        image.height + ' ' +
+                        file.type + ' ' +
+                        Math.round(file.size / 1024) + 'KB');
                     imageInfo.find(".imgLegendaTexto").attr("name", 'Imagem[' + posicao + '].Legenda').val(legenda);
 
                     imageInfo.append('<input name="Imagem.Index" type="hidden" value="' + posicao + '">');
-                    imageInfo.append('<input name="Imagem[' + posicao + '].Caminho" id="Itens[' + index + '].Imagem[' + posicao + '].Caminho" type="hidden" value="' + file.name  + '">');
-                    imageInfo.append('<input name="Imagem[' + posicao + '].Src" id="Itens[' + index + '].Imagem[' + posicao + '].Src" type="hidden" value="' + this.src + '">');
+                    imageInfo.append('<input name="Imagem[' + posicao + '].Caminho" id="Imagem[' + posicao + '].Caminho" type="hidden" value="' + file.name + '">');
+                    imageInfo.append('<input name="Imagem[' + posicao + '].Src" id="Imagem[' + posicao + '].Src" type="hidden" value="' + this.src + '">');
                     // Finally append our created image and the HTML info string to our `#preview`
                     elPreview.append(imageInfo);
                 });

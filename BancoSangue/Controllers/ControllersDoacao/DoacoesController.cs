@@ -23,8 +23,14 @@ namespace BancoSangue.Controllers.ControllersDoacao
 			return View(db.Doacaos.ToList());
 		}
 
-		// GET: Doacoes/Details/5
-		public ActionResult Details(int? id)
+        public ActionResult _Imagem(int id, Image img)
+        {
+            ViewBag.Index = id;
+            return PartialView(img);
+        }
+
+        // GET: Doacoes/Details/5
+        public ActionResult Details(int? id)
 		{
 			if (id == null)
 			{

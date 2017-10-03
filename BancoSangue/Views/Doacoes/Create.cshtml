@@ -10,9 +10,9 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal caixa3">
-        
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -62,25 +62,25 @@
             </div>
         </div>
         <div id="">
-           <div id="LocalImagens">
-                
-               </div>
-        </div>
-            <fieldset>
-    
-                <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" multiple />
-            </fieldset>
+            <div id="LocalImagens">
 
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <asp:FileUpload runat="server" id="img" accept=".jpg,.png" AllowMultiple="True" />
-                    <input type ="submit" value="Create" class="btn btn-default" img src="~/Content"/>
-
-                </div>
-                
             </div>
         </div>
+        <fieldset>
+
+            <input type="file" id="AdicionaImagem" value="Enviar" name="Imagens" multiple />
+        </fieldset>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <asp:FileUpload runat="server" id="img" accept=".jpg,.png" AllowMultiple="True" />
+                <input type="submit" value="Create" class="btn btn-default" img src="~/Content" />
+
+            </div>
+
+        </div>
+    </div>
 }
 
 <div>
@@ -108,14 +108,14 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script>
+    <script>
 
         "use strict"
-    
+
 
         window.URL = window.URL || window.webkitURL;
 
-       
+
 
         $(document).on("change", "#AdicionaImagem", function () {
             var files = this.files;
@@ -157,7 +157,7 @@
                 alert(errors);
             }
         });
-    
+
 
         var elBrowse = document.getElementById("browse"),
             useBlob = false && window.URL; // `true` to use Blob instead of Data-URL
@@ -198,15 +198,15 @@
                     legenda = legenda.substring(0, legenda.length - 4)
                     imageInfo.find("img").attr("src", this.src);
                     imageInfo.find(".imgInfoTexto").val(
-                                    file.name + ' ' +
-                                    image.width + '×' +
-                                    image.height + ' ' +
-                                    file.type + ' ' +
-                                    Math.round(file.size / 1024) + 'KB');
+                        file.name + ' ' +
+                        image.width + '×' +
+                        image.height + ' ' +
+                        file.type + ' ' +
+                        Math.round(file.size / 1024) + 'KB');
                     imageInfo.find(".imgLegendaTexto").attr("name", 'Imagem[' + posicao + '].Legenda').val(legenda);
 
                     imageInfo.append('<input name="Imagem.Index" type="hidden" value="' + posicao + '">');
-                    imageInfo.append('<input name="Imagem[' + posicao + '].Caminho" id="Itens[' + index + '].Imagem[' + posicao + '].Caminho" type="hidden" value="' + file.name  + '">');
+                    imageInfo.append('<input name="Imagem[' + posicao + '].Caminho" id="Itens[' + index + '].Imagem[' + posicao + '].Caminho" type="hidden" value="' + file.name + '">');
                     imageInfo.append('<input name="Imagem[' + posicao + '].Src" id="Itens[' + index + '].Imagem[' + posicao + '].Src" type="hidden" value="' + this.src + '">');
                     // Finally append our created image and the HTML info string to our `#preview`
                     elPreview.append(imageInfo);
@@ -231,6 +231,6 @@
 
         }
 
-</script>
+    </script>
 
 }

@@ -36,7 +36,7 @@ textarea {
     border-top: 6px solid #10afbf;
     overflow: auto;
     margin-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
 }
 
 div.caixa {
@@ -118,6 +118,17 @@ p {
     border-top: 6px solid #10afbf;
     padding-left:40px;
     /*margin-top: 40px;*/
+    overflow:auto;
     padding-top:40px;
     padding-bottom: 40px;
 }
+.labelmargin {
+    padding-left: 25px;
+    width: 300px;
+    /*text-transform: uppercase;*/
+    display: inline-block;
+   
+}
+
+
+
