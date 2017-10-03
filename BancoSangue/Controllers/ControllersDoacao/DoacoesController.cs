@@ -193,7 +193,7 @@ namespace BancoSangue.Controllers.ControllersDoacao
 						{
 							antigo.imagem.Add(i);
 						}
-
+                        antigo.Titulo = doacao.Titulo;
 						antigo.NomeResponsavel = doacao.NomeResponsavel;
 						antigo.Descricao = doacao.Descricao;
 						antigo.DataFim = doacao.DataFim;
