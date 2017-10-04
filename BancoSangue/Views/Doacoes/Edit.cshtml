@@ -10,7 +10,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal caixa3 ">
+    <div class="form-horizontal caixa caixa-overflow ">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -65,9 +65,9 @@
         <div id="LocalImagens" data-index="@Model.imagem.Count">
             @{
                 ViewBag.Index = 0;
-                foreach(var i in Model.imagem)
+                foreach (var i in Model.imagem)
                 {
-            @Html.Partial("_Imagem",i)
+                    @Html.Partial("_Imagem", i)
                     ViewBag.Index = ViewBag.Index + 1;
                 }
             }
@@ -78,48 +78,45 @@
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
+        <div>
+            @Html.ActionLink("Voltar para a lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
     </div>
 
                 }
 <div hidden id="baseImagemCarrossel">
-    <div class="col-xs-12 col-sm-6 ui-state-default">
+    <div class="col-xs-12 col-sm-6 col-md-4 ui-state-default">
         <div class="col-xs-12">
             <img width="100%" />
         </div>
-        
-            <div class="form-group">
-                <label class="control-label col-md-2 imgLegenda" for="Legenda">Legenda:</label>
-                <div class="col-md-10">
-                    <input class="form-control text-box single-line imgLegendaTexto" id="Legenda" name="Legenda" type="text">
-                </div>
+
+        <div class="form-group">
+            <label class="col-xs-12 col-md-2 imgLegenda" for="Legenda">Legenda:</label>
+            <div class="col-md-12">
+                <input class="form-control text-box single-line imgLegendaTexto" id="Legenda" name="Legenda" type="text">
             </div>
-            <div class="form-group">
-                <label class="control-label col-md-2 imgInfo" for="Infomações">Informações:</label>
-                <div class="col-md-10">
-                    <input class="form-control text-box single-line imgInfoTexto" name="Infomações" type="text" readonly>
-                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 imgInfo" for="Infomações">Informações:</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line imgInfoTexto" name="Infomações" type="text" readonly>
             </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-10">
-                <button class="btn btn-danger btn-delete" >Deletar</button>
+                <button class="btn btn-danger btn-delete">Deletar</button>
             </div>
         </div>
-        
-
-        
-            
-        
-
     </div>
 </div>
-<div>
-    @Html.ActionLink("Voltar para a lista", "Index")
-</div>
+@*<div>
+        @Html.ActionLink("Voltar para a lista", "Index",null, new { @class = "btn btn-primary" })
+    </div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script>
         "use strict"
@@ -128,8 +125,8 @@
         window.URL = window.URL || window.webkitURL;
 
         $(document).on("click", ".btn-delete", function () {
-           var id="#img-" + $(this).data("id");
-           $(id).remove();
+            var id = "#img-" + $(this).data("id");
+            $(id).remove();
         });
         $(function () {
             $("#LocalImagens").sortable();
@@ -215,7 +212,7 @@
 
                     var imageInfo = $($("#baseImagemCarrossel").html());
 
-                    
+
 
                     posicao = posicao + index;
                     imageInfo.attr("id", "img-" + posicao);

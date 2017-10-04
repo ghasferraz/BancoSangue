@@ -33,10 +33,33 @@ textarea {
     box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
     /*box-shadow: 2px 2px 1px 1px gray;*/
     background-color: rgba(123, 183, 243, 0.2);
-    border-top: 6px solid #10afbf;
+    border-top: 6px solid #6fb0f2;
     overflow: auto;
     margin-top: 40px;
     padding-bottom: 30px;
+}
+
+.caixa-overflow{
+    overflow:visible;
+}
+.btn-left{margin:40px;}
+.btn-right {margin: -150px;}
+
+hr {
+    border: 1px  #5ba4ef;
+    border-radius: 5px;
+    background-color: #6fb0f2;
+    height: 2px;
+}
+td {background-color: #6fb0f2;}
+
+th {
+    background-color: #89baed;
+}
+
+.file-left {
+    margin: 40px;
+    
 }
 
 div.caixa {
@@ -113,26 +136,30 @@ p {
 
 }
 
-.caixa3 {
+/*.caixa3 {
     border-radius: 25px;
     box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
-    /*box-shadow: 2px 2px 1px 1px gray;*/
+    box-shadow: 2px 2px 1px 1px gray;
     background-color: rgba(123, 183, 243, 0.2);
     border-top: 6px solid #10afbf;
     padding-left:40px;
-    /*margin-top: 40px;*/
+    margin-top: 40px;
     overflow:auto;
     padding-top:40px;
     padding-bottom: 40px;
+}*/
+
+
+.inputwidth {
+    
+    width: 150px;
+    /*text-transform: uppercase;*/
+    
 }
 
+#LocalImagens img {
 
-.labelmargin {
-    padding-left: 25px;
-    width: 300px;
-    /*text-transform: uppercase;*/
-    display: inline-block;
-   
+    height: 150px;
 }
 
 

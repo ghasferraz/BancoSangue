@@ -9,93 +9,90 @@
 {
     <div class="row">
 
-      
-        <div class="col-xs-12 caixa3">
+
+        <div class="col-xs-12 caixa">
 
             <div class="col-xs-12">
                 <h1>@m.Titulo</h1>
                 <hr />
-                <h2>@m.Descricao</h2>
-                <hr />
-
-               
-                    <div class="col-md-4 labelmargin">
-                        <div class="form-group">
-                            <label class="control-label col-xs-12">Data de Início</label>
-                            <div class="col-xs-12">
-                                <input class="form-control text-box single-line" type="text" value="@m.DataInicio.ToString("dd/MM/yyyy HH:mm") " readonly>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 labelmargin">
-                        <div class="form-group">
-                            <label class="control-label col-xs-12">Data Final </label>
-                            <div class="col-xs-12">
-                                <input class="form-control text-box single-line" type="text" value="@m.DataFim.ToString("dd/MM/yyyy HH:mm")" readonly>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 labelmargin">
-                        <div class="form-group">
-                            <label class="control-label col-xs-12">Data de Vagas</label>
-                            <div class="col-xs-12">
-                                <input class="form-control text-box single-line" type="text" value="@m.NumeroVagas " readonly>
-
-                            </div>
-                        </div>
-                    </div>
-                
-
-                    @*<div class="col-md-4">
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.DataInicio, htmlAttributes: new { @class = "control-label " })
-                        <div>
-                            @Html.DisplayFor(m => m.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-md-4">
-
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.DataFim, htmlAttributes: new { @class = "control-label " })
-                        <div>
-                            @Html.DisplayFor(m => m.DataFim, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-
-                    </div>
-
-                </div>
-            <div class="col-md-4">
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NumeroVagas, htmlAttributes: new { @class = "control-label " })
-                        <div>
-                            @Html.DisplayFor(model => model.NumeroVagas, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-
-                    </div>
-
-
-                </div>*@
-
-                </div>
-
-            <div class="col-xs-12 margintopImagem">
-                <hr />
             </div>
+            <div class="col-xs-12">
+
+                <div class="col-md-4 ">
+                    <div class="form-group">
+                        <label class="control-label col-xs-12">Data de Início</label>
+                        <div class="col-xs-12">
+                            <input  class="form-control text-box single-line inputwidth" type="text" value="@m.DataInicio.ToString("dd/MM/yyyy HH:mm") " readonly>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 ">
+                    <div class="form-group">
+                        <label class="control-label col-xs-12">Data Final </label>
+                        <div class="col-xs-12">
+                            <input class="form-control text-box single-line inputwidth" type="text" value="@m.DataFim.ToString("dd/MM/yyyy HH:mm")" readonly>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-12">Data de Vagas</label>
+                        <div class="col-xs-12">
+                            <input class="form-control text-box single-line inputwidth" type="text" value="@m.NumeroVagas " readonly>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+
+                <h2>@m.Descricao</h2>
 
 
+
+                @*<div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DataInicio, htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.DisplayFor(m => m.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DataFim, htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.DisplayFor(m => m.DataFim, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+
+                        </div>
+                    <div class="col-md-4">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.NumeroVagas, htmlAttributes: new { @class = "control-label " })
+                                <div>
+                                    @Html.DisplayFor(model => model.NumeroVagas, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+
+
+                        </div>*@
+
+            </div>
 
         </div>
 
-        <div class="caixa">
+        <div class="col-md-12  caixa">
 
             <div class="col-xs-12 ">
                 @{int cont = 0;
@@ -103,13 +100,13 @@
                     {
 
 
-                <div class="col-md-4 ">
-                    <div class="caixa2">
-                        <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive img-click" data-id="@cont">
-                        <p>@i.Legenda</p>
+                        <div class="col-md-4 ">
+                            <div class="caixa2">
+                                <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class="img-responsive img-click" data-id="@cont">
+                                <p>@i.Legenda</p>
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
                         cont++;
 
@@ -140,7 +137,7 @@
                             @{cont = 0;
                                 foreach (var i in m.imagem)
                                 {
-                                    if (cont == 0) 
+                                    if (cont == 0)
                                     {
                             <div class="col-sx-12 caixa2 item active">
                                 <img src="~/Content/@i.caminho" alt="@i.Legenda" align="middle" class=" img-responsive">
@@ -187,10 +184,6 @@
         </div>
     </div>
                                 }
-
-
-
-
 
 
 @section Scripts {

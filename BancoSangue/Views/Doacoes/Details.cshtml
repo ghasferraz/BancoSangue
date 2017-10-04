@@ -7,7 +7,7 @@
 <h2>Detalhes da campanha</h2>
 
 <div>
-    <dl class="dl-horizontal caixa3 ">
+    <dl class="dl-horizontal caixa ">
         <dt>
             @Html.DisplayNameFor(model => model.Titulo)
         </dt>
@@ -55,10 +55,12 @@
         <dd>
             @Html.DisplayFor(model => model.NomeResponsavel)
         </dd>
+        <br/>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Voltar para a lista", "Index", null, new { @class = "btn btn-primary" })
+        </p>
 
     </dl>
+
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Voltar para a lista", "Index")
-</p>

@@ -1,12 +1,12 @@
 ﻿@model BancoSangue.Models.Imagem
 
-<div class="col-xs-12 col-sm-6 selecionar" id="img-@ViewBag.Index">
+<div class="col-xs-12 col-sm-6 col-md-4 selecionar" id="img-@ViewBag.Index">
     <div class="col-xs-12">
         <img width="100%" src="~/Content/@Model.caminho" />
     </div>
     <div class="form-group">
-        <label class="control-label col-md-2 imgLegenda" for="Legenda">Legenda:</label>
-        <div class="col-md-10">
+        <label class="col-xs-12 imgLegenda" for="Legenda">Legenda:</label>
+        <div class="col-xs-12">
             <input name="Imagem[@ViewBag.Index].Legenda" class="form-control text-box single-line imgLegendaTexto" id="Legenda" type="text" value="@Model.Legenda">
         </div>
     </div>
